@@ -5,6 +5,8 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 * @memberOf advanced-catalog-buying.Home
 */
+	
+
 	onInit: function() {
 		var sUrlString = window.location.href;
 		var oUrl = new URL(sUrlString);
