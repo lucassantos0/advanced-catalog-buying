@@ -33,7 +33,7 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 	        'target': '_top'
 	    }).append(jQuery('<input>', {
 	        'name': 'cxml-urlencoded',
-	        'value': getcXML(),
+	        'value': this.getcXML(),
 	        'type': 'hidden'
 	    }));
 	    $(document.body).append(newForm);
