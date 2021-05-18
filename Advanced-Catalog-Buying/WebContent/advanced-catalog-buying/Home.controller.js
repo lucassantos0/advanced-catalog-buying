@@ -9,7 +9,7 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 		var sUrlString = window.location.href;
 		var oUrl = new URL(sUrlString);
 		var oConfigData = oUrl.searchParams.get("config");
-		this.oConfigModel = new sap.ui.model.json.JSONModel(oConfigData);
+		this.oConfigModel = new sap.ui.model.json.JSONModel(JSON.parse(oConfigData));
 		this.getView().setModel(this.oConfigModel,"Config");		
 	},
 
