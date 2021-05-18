@@ -1,7 +1,19 @@
-<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-		controllerName="advanced-catalog-buying.Home" xmlns:html="http://www.w3.org/1999/xhtml">
+<core:View
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	controllerName="advanced-catalog-buying.Home"
+	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Bem-vindo {Config>/username}">
 		<content>
+			<VBox>
+				<HBox>
+					<Label text="CallbackURL" />
+					<Text text="{Config>/callbackUrl}" />
+					<Label text="BuyerCookie" />
+					<Text text="{Config>/buyerCookie}" />
+				</HBox>
+			</VBox>
 		</content>
 	</Page>
 </core:View>
