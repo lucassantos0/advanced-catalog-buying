@@ -23,7 +23,7 @@ sap.ui.controller("advanced-catalog-buying.Home", {
  */
 
  	onPostCallback: function(oEvent) {
- 	//test
+ 	 //test
 	   oEvent.preventDefault();
 	    var newForm = jQuery('<form>', {
 	        'action': this.oConfigData.callbackUrl,
