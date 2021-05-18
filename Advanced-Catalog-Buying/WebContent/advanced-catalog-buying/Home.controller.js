@@ -6,14 +6,36 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 * @memberOf advanced-catalog-buying.Home
 */
 	
-
 	onInit: function() {
 		var sUrlString = window.location.href;
 		var oUrl = new URL(sUrlString);
 		var oConfigData = oUrl.searchParams.get("config");
-		this.oConfigModel = new sap.ui.model.json.JSONModel(JSON.parse(oConfigData));
+		this.oConfigData = JSON.parse(oConfigData);
+		this.oConfigModel = new sap.ui.model.json.JSONModel(this.oConfigData);
 		this.getView().setModel(this.oConfigModel,"Config");		
 	},
+
+	/**
+ * sends a request to the specified url from a form. this will change the window location.
+ * @param {string} path the path to send the post request to
+ * @param {object} params the parameters to add to the url
+ * @param {string} [method=post] the method to use on the form
+ */
+
+ 	onPostCallback: function() {
+	  jQuery('#fire').click(function(event){
+	    event.preventDefault();
+	    var newForm = jQuery('<form>', {
+	        'action': this.oConfigData.callbackUrl,
+	        'target': '_top'
+	    }).append(jQuery('<input>', {
+	        'name': 'cxml-urlencoded',
+	        'value': '<cXML />',
+	        'type': 'hidden'
+	    }));
+	    newForm.submit();
+	  });
+	}
 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
