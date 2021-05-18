@@ -23,8 +23,8 @@ sap.ui.controller("advanced-catalog-buying.Home", {
  */
 
  	onPostCallback: function() {
-	  jQuery('#fire').click(function(event){
-	    event.preventDefault();
+	 // jQuery('#fire').click(function(event){
+	   // event.preventDefault();
 	    var newForm = jQuery('<form>', {
 	        'action': this.oConfigData.callbackUrl,
 	        'target': '_top'
@@ -34,7 +34,7 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 	        'type': 'hidden'
 	    }));
 	    newForm.submit();
-	  });
+	  //});
 	}
 
 /**
