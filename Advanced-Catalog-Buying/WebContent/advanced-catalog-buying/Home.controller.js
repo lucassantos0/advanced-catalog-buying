@@ -5,7 +5,7 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 * @memberOf advanced-catalog-buying.Home
 */
-	
+		
 	onInit: function() {
 		var sUrlString = window.location.href;
 		var oUrl = new URL(sUrlString);
@@ -33,11 +33,68 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 	        'target': '_top'
 	    }).append(jQuery('<input>', {
 	        'name': 'cxml-urlencoded',
-	        'value': '<cXML />',
+	        'value': getcXML(),
 	        'type': 'hidden'
 	    }));
 	    $(document.body).append(newForm);
 	    newForm.submit();
+	},
+	
+	getcXML : function() {
+		var sGUID = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        	var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+	        return v.toString(16);
+    	});
+		var sXML = 
+			'<?xml version="1.0"?>'
+			+ '<!DOCTYPE cXML SYSTEM "http://xml.cxml.org/schemas/cXML/1.2.044/cXML.dtd">'
+			+ '<cXML version="1.2" xml:lang="en-US" payloadID="' + sGUID + '" timestamp="2021-05-13T08:03:21-07:00">'
+			+ '  <Header>'
+			+ '      <From>'
+			            + '<Credential domain="networkid">'
+			                + '<Identity>an01637331180-t</Identity>'
+			            + '</Credential>'
+			        + '</From>'
+			        + '<To>'
+			            + '<Credential domain="NetworkId">'
+			                + '<Identity>AN01591885353-T</Identity>'
+			            + '</Credential>'
+			        + '</To>'
+			        + '<Sender>'
+			            + '<Credential domain="txrxwi.deta.dev">'
+			                + '<Identity>PunchoutResponse</Identity>'
+							+ '<SharedSecret>ariba123</SharedSecret>'
+			            + '</Credential>'
+			            + '<UserAgent>Southend cXML Application</UserAgent>'
+			        + '</Sender>'
+			    + '</Header>'
+			    + '<Message>'
+			        + '<PunchOutOrderMessage>'
+			            + '<BuyerCookie>' + this.oConfigData.buyerCookie + '</BuyerCookie>'
+			       + '     <PunchOutOrderMessageHeader operationAllowed="edit">'
+			                + '<Total>'
+			                    + '<Money currency="BRL">763.20</Money>'
+			                + '</Total>'
+			            + '</PunchOutOrderMessageHeader>'
+			            + '<ItemIn quantity="3">'
+			                + '<ItemID>'
+			                    + '<SupplierPartID>460000010|5555</SupplierPartID>'
+			                    + '<SupplierPartAuxiliaryID>E000028901</SupplierPartAuxiliaryID>'
+			                + '</ItemID>'
+			                + '<ItemDetail>'
+			                    + '<UnitPrice>'
+			                        + '<Money currency="BRL">763.20</Money>'
+			                    + '</UnitPrice>'
+			                    + '<Description xml:lang="pt_BR">Cadeira reclinavel de couro com braços acolchoados|IVA Selecionado: C0|Cor selecionada: Amarelo|</Description>'
+			                    + '<UnitOfMeasure>EA</UnitOfMeasure>'
+			                    + '<Classification domain="UNSPSC">44</Classification>'
+			                    + '<LeadTime>12</LeadTime>'
+			                + '</ItemDetail>'
+			            + '</ItemIn>'
+			        + '</PunchOutOrderMessage>'
+			    + '</Message>'
+			+ '</cXML>';
+		return sXML;
 	}
 
 /**
