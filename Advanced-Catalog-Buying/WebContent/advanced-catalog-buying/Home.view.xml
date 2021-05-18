@@ -19,6 +19,8 @@
 						<Text text="{Config>/buyerCookie}" />
 					</f:content>
 				</f:SimpleForm>
+				<core:HTML
+					content="%3Cform+id%3D%22cxml_form%22+method%3D%22POST%22+action%3D%22%7B%7Bbuyer_form_post_url%7D%7D%22+enctype%3D%22application%2Fx-www-form-urlencoded%22%3E+++%3Cinput+type%3D%22hidden%22+name%3D%22cXML-urlencoded%22+value%3D%22%7B%7Bxml%7D%7D%22%3E+%3C%2Fform%3E+%3Cscript+type%3D%22text%2Fjavascript%22%3Edocument.getElementById%28%27cxml_form%27%29.submit%28%29%3C%2Fscript%3E" />
 			</VBox>
 		</content>
 	</Page>
