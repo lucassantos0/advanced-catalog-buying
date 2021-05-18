@@ -26,7 +26,10 @@ sap.ui.controller("advanced-catalog-buying.Home", {
  	 //test
 	   oEvent.preventDefault();
 	    var newForm = jQuery('<form>', {
+	    	'id' : 'cxml_form',
+	    	'enctype': 'application/x-www-form-urlencoded',
 	        'action': this.oConfigData.callbackUrl,
+	        'method': 'POST',
 	        'target': '_top'
 	    }).append(jQuery('<input>', {
 	        'name': 'cxml-urlencoded',
