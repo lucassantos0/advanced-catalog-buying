@@ -22,9 +22,8 @@ sap.ui.controller("advanced-catalog-buying.Home", {
  * @param {string} [method=post] the method to use on the form
  */
 
- 	onPostCallback: function() {
-	 // jQuery('#fire').click(function(event){
-	   // event.preventDefault();
+ 	onPostCallback: function(oEvent) {
+	   oEvent.preventDefault();
 	    var newForm = jQuery('<form>', {
 	        'action': this.oConfigData.callbackUrl,
 	        'target': '_top'
@@ -33,8 +32,8 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 	        'value': '<cXML />',
 	        'type': 'hidden'
 	    }));
+	    $(document.body).append(newForm);
 	    newForm.submit();
-	  //});
 	}
 
 /**
