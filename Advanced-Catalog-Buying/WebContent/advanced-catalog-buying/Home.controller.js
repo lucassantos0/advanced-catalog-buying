@@ -7,10 +7,10 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 */
 	onInit: function() {
 		var sUrlString = window.location.href;
-		var oOrl = new URL(sUrlString);
-		var sCallbackUrl = url.searchParams.get("callbackUrl");
-		var sUser = url.searchParams.get("username");
-		var sCallbackBuyerCookie = url.searchParams.get("buyerCookie");
+		var oUrl = new URL(sUrlString);
+		var sCallbackUrl = oUrl.searchParams.get("callbackUrl");
+		var sUser = oUrl.searchParams.get("username");
+		var sCallbackBuyerCookie = oUrl.searchParams.get("buyerCookie");
 		
 		var oConfigData = {
 			callbackUrl : sCallbackUrl,
