@@ -5,9 +5,21 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 * @memberOf advanced-catalog-buying.Home
 */
-//	onInit: function() {
-//
-//	},
+	onInit: function() {
+		var sUrlString = window.location.href;
+		var oOrl = new URL(sUrlString);
+		var sCallbackUrl = url.searchParams.get("callbackUrl");
+		var sUser = url.searchParams.get("username");
+		var sCallbackBuyerCookie = url.searchParams.get("buyerCookie");
+		
+		var oConfigData = {
+			callbackUrl : sCallbackUrl,
+			username : sUser,
+			sCallbackBuyerCookie
+		};
+		this.oConfigModel = new sap.ui.model.json.JSONModel(oConfigData);
+		this.getView().setModel(this.oConfigModel,"Config");		
+	},
 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
