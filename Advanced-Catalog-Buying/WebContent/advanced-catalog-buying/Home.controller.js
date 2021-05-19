@@ -85,7 +85,7 @@ sap.ui.controller("advanced-catalog-buying.Home", {
 			                    + '<UnitPrice>'
 			                        + '<Money currency="BRL">763.20</Money>'
 			                    + '</UnitPrice>'
-			                    + '<Description xml:lang="pt_BR">Cadeira reclinavel de couro com braços acolchoados&nbsp;IVA Selecionado: C0&lt;br /&gt;Cor selecionada: Amarelo| Depósito: C1900 - Endereço : ABC / 90 / Porto Alegre-RS</Description>'
+			                    + '<Description xml:lang="pt_BR">Cadeira reclinavel de couro com braços acolchoados&nbsp;IVA Selecionado: C0&lt;br gt;Cor selecionada: Amarelo| Depósito: C1900 - Endereço : ABC 90 Porto Alegre-RS</Description>'
 			                    + '<UnitOfMeasure>EA</UnitOfMeasure>'
 			                    + '<Classification domain="UNSPSC">44</Classification>'
 			                    + '<LeadTime>12</LeadTime>'
